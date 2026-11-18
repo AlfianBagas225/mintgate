@@ -1,0 +1,7 @@
+{
+  "deploy": 997352,
+  "checkIn": 118070,
+  "reserveSlot": 80381,
+  "registerMint": 164539,
+  "note": "ganache local; BSC gas price measured separately (see DEPLOY.md)"
+}

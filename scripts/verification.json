@@ -1,0 +1,61 @@
+{
+  "verifiedAt": "2026-11-18T15:03:17.372Z",
+  "from": "0x00139A62B5800B1F58920ff5fB0944e955b3526A",
+  "results": [
+    {
+      "name": "Worldygg Tree",
+      "contract": "0x2ED9E0a6992BA22B48c2fc2def6bB2365301A0D0",
+      "score": 89,
+      "fn": "mint(uint256)",
+      "codeBytes": 11140,
+      "live": true,
+      "simOk": true,
+      "simReturn": "0x",
+      "ok": true
+    },
+    {
+      "name": "AgentPad Pass",
+      "contract": "0x01c106835091c09D5c69737631Af133530093C89",
+      "score": 89,
+      "fn": "mint()",
+      "codeBytes": 7072,
+      "live": true,
+      "simOk": true,
+      "simReturn": "0x",
+      "ok": true
+    },
+    {
+      "name": "M3MO Genesis",
+      "contract": "0x08BE8a0727b6fc801171c1F4F4Dd547EA44Ca339",
+      "score": 89,
+      "fn": "mint()",
+      "codeBytes": 6784,
+      "live": true,
+      "simOk": true,
+      "simReturn": "0x0000000000000000000000000000000000000000000000000000000000001961",
+      "ok": true
+    },
+    {
+      "name": "Dreadnought",
+      "contract": "0x8d0619c59418ed042e43838bb6e83038303d27f6",
+      "score": 85,
+      "fn": "mint(uint256)",
+      "codeBytes": 11652,
+      "live": true,
+      "simOk": true,
+      "simReturn": "0x",
+      "ok": true
+    },
+    {
+      "name": "Mine Card",
+      "contract": "0xF8A72C4538Cd9d570B2C771f01A0d561a90A64Eb",
+      "score": 85,
+      "fn": "mintCard(uint256)",
+      "codeBytes": 14048,
+      "live": true,
+      "simOk": true,
+      "simReturn": "0x000000000000000000000000000000000000000000000000000000000000056a",
+      "ok": true
+    }
+  ]
+}
