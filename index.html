@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MintGate — Verified free mints for Agent ID holders (BNB Chain)</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #0c0f14; color: #e8ecf1; line-height: 1.55; }
+  main { max-width: 860px; margin: 0 auto; padding: 28px 18px 60px; }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  h2 { font-size: 20px; margin-top: 34px; border-bottom: 1px solid #26303d; padding-bottom: 6px; }
+  h3 { font-size: 16px; margin-bottom: 4px; }
+  p, li { font-size: 15px; }
+  a { color: #7cc4ff; }
+  code, pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13px; }
+  pre { background: #12161d; border: 1px solid #26303d; border-radius: 8px; padding: 12px; overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+  .tag { display: inline-block; background: #1d2b1d; color: #9fe6a0; border: 1px solid #2f5230; border-radius: 999px; padding: 2px 10px; font-size: 12px; }
+  .warn { background: #2a1d12; border: 1px solid #6b4a1f; border-radius: 8px; padding: 12px 14px; }
+  .card { background: #12161d; border: 1px solid #26303d; border-radius: 10px; padding: 14px 16px; margin: 10px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #26303d; vertical-align: top; }
+  th { color: #9aa7b5; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+  input[type=text] { width: 100%; max-width: 460px; padding: 9px 10px; border-radius: 8px; border: 1px solid #26303d; background: #0c0f14; color: #e8ecf1; font-size: 14px; }
+  button { padding: 9px 16px; border-radius: 8px; border: 1px solid #2f6fb2; background: #1c4b80; color: #fff; font-size: 14px; cursor: pointer; }
+  button:hover { background: #2560a3; }
+  .muted { color: #9aa7b5; }
+  .mono { word-break: break-all; }
+  details { margin-top: 8px; }
+  summary { cursor: pointer; color: #7cc4ff; }
+</style>
+</head>
+<body>
+<main>
+  <h1>MintGate</h1>
+  <p><span class="tag">Binance Agent ID Hackathon entry</span> <span class="tag">BNB Chain</span></p>
+  <p><strong>A board of verified free mints, gated to Binance Agent ID holders.</strong>
+  Every mint listed here was checked before listing: MINTS score &ge; 85 with no risk flags,
+  contract live on BSC, source verified, zero-value mint simulated successfully from an
+  Agent ID wallet, and no upgrade/self-destruct/blacklist. The full list and your slot
+  reservation live <em>on-chain</em> — the gate is the Agent ID itself, not an account on this site.</p>
+
+  <div class="warn">
+    <strong>Risk warning.</strong> Free mints are still crypto assets from third-party projects.
+    A listing means the mint passed our checks <em>at curation time</em> — it is not a promise
+    that the NFT will be worth anything, and it is not investment advice. Only mint what you
+    understand, never pay more than the listed terms (value 0 for the free lot), and always
+    preview the transaction in your own wallet before signing. MintGate never promises returns.
+  </div>
+
+  <h2>Contract</h2>
+  <div class="card">
+    <p><strong>MintGate contract (BNB Chain):</strong><br>
+    <code class="mono">0x6254543dB7C211369E988BEd8ec7C82fdb89FBfc</code><br>
+    <span class="muted">Live on BNB Smart Chain — <a href="https://bscscan.com/address/0x6254543dB7C211369E988BEd8ec7C82fdb89FBfc">0x6254543dB7C211369E988BEd8ec7C82fdb89FBfc (BscScan)</a>. Deployed 18 Nov 2026, tx 0xd2f536ce077f4f660747b312402fd4077ed0682068e0c962fba6dcbab0f9929f. 5 mints registered on-chain.</span></p>
+    <p><strong>Agent ID registry (SPACE ID, ERC-721):</strong><br>
+    <code class="mono">0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F</code></p>
+    <p><strong>Source code:</strong> public GitHub repo <a href="https://github.com/AlfianBagas225/mintgate">AlfianBagas225/mintgate</a> (MIT)<br>
+    <span class="muted">Functions: <code>checkIn(bytes32)</code>, <code>reserveSlot(uint256)</code>, <code>registerMint(...)</code> (owner only), <code>isAgent(address)</code>, <code>hasCheckedIn(address)</code>, <code>checkInCount()</code>, <code>getMint(uint256)</code>.</span></p>
+    <details><summary>Full ABI (for your agent)</summary>
+    <pre id="abi">Loading ABI…</pre>
+    </details>
+  </div>
+
+  <h2>How to use — via your own AI agent (no login here)</h2>
+  <p>There is <strong>no connect-wallet button and no login on this site</strong> — by design.
+  Your Agentic Wallet cannot sign in through a website QR code, and MintGate never asks for
+  your seed phrase, private key, or pairing code. You interact through your own AI agent
+  (e.g. Binance AI Pro / Claude Code), which calls the contract — and <strong>you confirm
+  every transaction yourself in the Binance app</strong>.</p>
+  <ol>
+    <li><strong>Check in (once, gas only).</strong> Ask your agent to call <code>checkIn</code> on the MintGate contract with the keccak256 hash of your own <code>.ai</code> name. One check-in per wallet.</li>
+    <li><strong>Reserve a slot (gas only).</strong> Ask your agent to call <code>reserveSlot(mintId)</code> for the mint you want. One slot per wallet per mint. The reservation itself is free.</li>
+    <li><strong>Mint on the listed contract (value 0 for the free lot).</strong> Ask your agent to call the mint's function (see table below) with value 0, and preview it first. Only mint while the value stays 0.</li>
+  </ol>
+  <p>Example prompt for your agent:</p>
+  <pre>Call checkIn on MintGate (0x6254543dB7C211369E988BEd8ec7C82fdb89FBfc, BNB Chain)
+with the keccak256 hash of my Agent ID name "YOURNAME.ai".
+Then call reserveSlot(0) for Worldygg Tree.
+Show me the exact calldata and the simulation result before I confirm anything.
+Do not send any transaction without my confirmation in the Binance app.</pre>
+  <p class="muted">Your agent needs the contract ABI — it is embedded on this page (see “Full ABI” above) and in the repo (<code>build/MintGate.abi.json</code>).</p>
+
+  <h2>Check a wallet's status (read-only)</h2>
+  <p class="muted">Paste any wallet address. This only reads the chain through a public BSC RPC — no wallet connection, no signing.</p>
+  <p>
+    <input type="text" id="addr" placeholder="0x…" spellcheck="false">
+    <button id="checkBtn">Check</button>
+  </p>
+  <p id="statusOut" class="mono">—</p>
+
+  <h2>Curated free mints (launch list)</h2>
+  <p class="muted">Verified 18 Nov 2026. Each listing's audit evidence is hashed on-chain at registration (<code>auditHash</code> in <code>registerMint</code>). Re-verify before you mint: a listing can be deactivated if the mint dies or turns paid.</p>
+  <table>
+    <thead><tr><th>#</th><th>Mint</th><th>Score</th><th>Terms</th><th>Mint function</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td><a href="https://bscscan.com/address/0x2ED9E0a6992BA22B48c2fc2def6bB2365301A0D0">Worldygg Tree</a><br><span class="muted">20,264 / 99,999 minted · <a href="https://www.worldygg.fun">site</a></span></td><td>89</td><td>First Tree free, then $1.50 each. Up to 9 per wallet.</td><td><code>mint(uint256)</code></td></tr>
+      <tr><td>1</td><td><a href="https://bscscan.com/address/0x01c106835091c09D5c69737631Af133530093C89">AgentPad Pass</a><br><span class="muted">5,930 / 10,000 minted · <a href="http://agentpad.trade">site</a></span></td><td>89</td><td>Free mint pass.</td><td><code>mint()</code></td></tr>
+      <tr><td>2</td><td><a href="https://bscscan.com/address/0x08BE8a0727b6fc801171c1F4F4Dd547EA44Ca339">M3MO Genesis</a><br><span class="muted">/ 10,000 minted · <a href="https://m3m3agent.uk">site</a></span></td><td>89</td><td>1 free per Agent ID wallet.</td><td><code>mint()</code></td></tr>
+      <tr><td>3</td><td><a href="https://bscscan.com/address/0x8d0619c59418ed042e43838bb6e83038303d27f6">Dreadnought</a><br><span class="muted">1,143 / 6,666 minted</span></td><td>85</td><td>2 free per Agent ID wallet (4,444 free pool), then 0.0005 BNB each, max 20.</td><td><code>mint(uint256)</code></td></tr>
+      <tr><td>4</td><td><a href="https://bscscan.com/address/0xF8A72C4538Cd9d570B2C771f01A0d561a90A64Eb">Mine Card</a><br><span class="muted">1,353 / 8,888 minted</span></td><td>85</td><td>1st card free per Agent ID wallet, then 0.0005 BNB, max 20.</td><td><code>mintCard(uint256)</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2>What the contract can and cannot do</h2>
+  <ul>
+    <li><strong>Owner can:</strong> register / activate / deactivate mint listings, transfer or renounce ownership. That is all.</li>
+    <li><strong>Owner cannot:</strong> touch user funds (the contract has no payable function and can never hold BNB), mint or freeze anything, pause your check-in, or change any fee — there is no fee.</li>
+    <li><strong>Agent ID is used only as an access gate</strong> (<code>balanceOf &gt;= 1</code>). MintGate never looks up or displays anyone else's wallet by name.</li>
+    <li><strong>No returns are promised.</strong> A free mint is a free NFT, not income.</li>
+  </ul>
+
+  <h2>About</h2>
+  <p class="muted">MintGate is an entry for the Binance Agent ID Hackathon (18 Nov – 9 Dec 2026).
+  Built by an AI agent (Jhon) for @alfian-bagas-prabaswara (Agent ID: schizo.ai).
+  Not affiliated with Binance, BNB Chain, or SPACE ID. Contract source: MIT licensed, open-source.</p>
+</main>
+<script>
+(function () {
+  var GATE = '0x6254543dB7C211369E988BEd8ec7C82fdb89FBfc';
+  var RPC = 'https://bsc-dataseed.binance.org/';
+  var ABI_URL = 'MintGate.abi.json';
+  var abiEl = document.getElementById('abi');
+  fetch(ABI_URL).then(function (r) { return r.text(); }).then(function (t) { abiEl.textContent = t; })
+    .catch(function () { abiEl.textContent = 'ABI file not found next to this page (build/MintGate.abi.json in the repo).'; });
+
+  function hexPad(addr) { return '0x' + '000000000000000000000000' + addr.toLowerCase().replace(/^0x/, ''); }
+  function rpcCall(to, data) {
+    return fetch(RPC, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_call', params: [{ to: to, data: data }, 'latest'] }) })
+      .then(function (r) { return r.json(); }).then(function (j) {
+        if (j.error) throw new Error(j.error.message || 'rpc error');
+        return j.result;
+      });
+  }
+  function asBool(hex) { return /^0x0*1$/.test(hex); }
+  function asUint(hex) { return BigInt(hex).toString(10); }
+  // selectors from the MintGate ABI: isAgent(address)=0x1ffbb064,
+  // hasCheckedIn(address)=0x7f87d6ec, checkInCount()=0x2c3a890a
+  document.getElementById('checkBtn').addEventListener('click', function () {
+    var addr = document.getElementById('addr').value.trim();
+    var out = document.getElementById('statusOut');
+    if (!/^0x[0-9a-fA-F]{40}$/.test(addr)) { out.textContent = 'Enter a valid 0x address.'; return; }
+    out.textContent = 'Checking…';
+    var padded = hexPad(addr).slice(2);
+    Promise.all([
+      rpcCall(GATE, '0x1ffbb064' + padded),
+      rpcCall(GATE, '0x7f87d6ec' + padded),
+      rpcCall(GATE, '0x2c3a890a')
+    ]).then(function (res) {
+      out.textContent = 'Agent ID held: ' + (asBool(res[0]) ? 'YES' : 'NO')
+        + '  |  Checked in to MintGate: ' + (asBool(res[1]) ? 'YES' : 'NO')
+        + '  |  Total check-ins: ' + asUint(res[2]);
+    }).catch(function (e) { out.textContent = 'Read failed: ' + e.message + ' (contract not deployed yet, or RPC unreachable).'; });
+  });
+})();
+</script>
+</body>
+</html>
